@@ -1,30 +1,35 @@
 {% extends 'base.html' %} {% block content %}
 
-   <form method="post">
-      {{ create.csrf_token }}
-      <p class="input">{{create.title(placeholder="title")}}</p>
-      {% for error in create.title.errors %}
-      <li class="error">{{error}}</li>
-      {% endfor %}
-      <p class="input">{{create.body(placeholder="Enter pitch")}}</p>
-      {% for error in create.body.errors %}
-      <li class="error">{{error}}</li>
-      {% endfor %}
+<div class="nav-wrapper">
+  <a href="/pitches">pitches</a>
+  <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
+</div>
 
-      <p class="input">{{create.category()}}</p>
-      {% for error in create.category.errors %}
-      <li class="error">{{error}}</li>
-      {% endfor %}
+<form method="post">
+  {{ create.csrf_token }}
+  <p class="input">{{create.title(placeholder="title")}}</p>
+  {% for error in create.title.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
+  <p class="input">{{create.body(placeholder="Enter pitch")}}</p>
+  {% for error in create.body.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
 
-     <p class="btn">{{create.submit()}}</p>
-      {% for error in create.submit.errors %}
-      <li class="error">{{error}}</li>
-      {% endfor %}  
+  <p class="input">{{create.category()}}</p>
+  {% for error in create.category.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
 
-      <div class="extra_info_wrapper">
-        <h4>Pitchme</h4>
-        <h5>Copyrights2022</h5>
-      </div>
-    </form>  
+  <p class="btn">{{create.submit()}}</p>
+  {% for error in create.submit.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
+
+  <div class="extra_info_wrapper">
+    <h4>Pitchme</h4>
+    <h5>Copyrights2022</h5>
+  </div>
+</form>
 
 {% endblock %}
