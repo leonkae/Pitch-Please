@@ -17,6 +17,8 @@ class User(db.Model,UserMixin):
     username = db.Column(db.String, unique=True, index=True)
     email = db.Column(db.String, unique=True, index=True)
     password_hash = db.Column(db.String)
+    # bio = db.Column(db.String(255))
+    # profile_pic_path = db.Column(db.String)
     
     @property
     def password(self):

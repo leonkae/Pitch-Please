@@ -22,29 +22,29 @@
       <p class="input">{{signup.username(placeholder="username")}}</p>
 
       {% for error in signup.username.error %}email.errors %}
-      <li class="error">{{error}}</li>
+      <ol class="error">{{error}}</ol>
       {% endfor %}
 
       <p class="input">{{signup.email(placeholder="email")}}</p>
       {% for error in signup.email.errors %}
-      <li class="error">{{error}}</li>
+      <ol class="error">{{error}}</ol>
       {% endfor %}
 
       <p class="input">{{signup.password(placeholder="password")}}</p>
       {% for error in signup.password.errors %}
-      <li class="error">{{error}}</li>
+      <ol class="error">{{error}}</ol>
       {% endfor %}
 
       <p class="input">
         {{signup.password_confirm(placeholder="confirm password")}}
       </p>
       {% for error in signup.password_confirm.errors %}
-      <li class="error">{{error}}</li>
+      <ol class="error">{{error}}</ol>
       {% endfor %}
 
       <p class="btn">{{signup.submit()}}</p>
       {% for error in signup.submit.errors %}
-      <li class="error">{{error}}</li>
+      <ol class="error">{{error}}</ol>
       {% endfor %}
 
       <div class="more_info_wrapper">

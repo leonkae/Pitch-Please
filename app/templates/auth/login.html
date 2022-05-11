@@ -29,6 +29,8 @@
       <li class="error">{{error}}</li>
       {% endfor %}
 
+
+      <p class="input">{{login.remember.label()}}</p>
       <p class="input">{{login.remember()}}</p>
       {% for error in login.remember.errors %}
       <li class="error">{{error}}</li>
