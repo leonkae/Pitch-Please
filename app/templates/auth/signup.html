@@ -1,4 +1,9 @@
 {% extends 'base.html' %} {% block content %}
+<div class="nav-wrapper">
+  <a href="/">home</a>
+  <a href="/auth/login">login</a>
+</div>
+
 <div class="title-wrapper">
   <h1>signup</h1>
 </div>
@@ -15,7 +20,7 @@
         {{signup.password_confirm(placeholder="confirm password")}}
       </p>
       <p class="btn">{{signup.submit()}}</p>
-      
+
       <div class="more_info_wrapper">
         <h4>Pitchme</h4>
         <h5>Copyrights2022</h5>
