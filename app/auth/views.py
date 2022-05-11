@@ -15,8 +15,8 @@ def login():
         user=User.query.filter_by(email=login.email.data).first()
         if user is not None and user.verify_password(login.password.data):
             login_user(user, login.remember.data)
-            print(user)
-            return redirect(request.args.get('next') or url_for('main_blueprint.index'))
+            # print(user)
+            return redirect(request.args.get('next') or url_for('main_blueprint.pitches'))
         
         flash('invalid Email or password')    
     
@@ -37,4 +37,4 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main_blueprint.index'))
