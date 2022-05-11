@@ -11,15 +11,41 @@
   <div class="sign-art-wrapper"></div>
   <div class="signup-wrapper">
     <h1>signup.</h1>
+
+    <div class="error">
+      {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
     <form method="post">
       {{ signup.csrf_token }}
       <p class="input">{{signup.username(placeholder="username")}}</p>
+
+      {% for error in signup.username.error %}email.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+
       <p class="input">{{signup.email(placeholder="email")}}</p>
+      {% for error in signup.email.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+
       <p class="input">{{signup.password(placeholder="password")}}</p>
+      {% for error in signup.password.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+
       <p class="input">
         {{signup.password_confirm(placeholder="confirm password")}}
       </p>
+      {% for error in signup.password_confirm.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+
       <p class="btn">{{signup.submit()}}</p>
+      {% for error in signup.submit.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
       <div class="more_info_wrapper">
         <h4>Pitchme</h4>
