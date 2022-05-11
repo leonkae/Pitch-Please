@@ -13,11 +13,11 @@
   <div class="art-wrapper"></div>
   <div class="login-wrapper">
     <h1>login</h1>
-
-    {% for message in get_flashed_messages() %}
-    <p>{{message}}</p>
-    {% endfor %}
-    
+    <div class="error">
+      {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
     <form method="post">
       {{ login.csrf_token }}
       <p class="input">{{login.email(placeholder="Email")}}</p>
