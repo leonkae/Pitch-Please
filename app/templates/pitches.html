@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+
+   
+
+
+
+
+    <!-- logout leads back to index -->
+ <button class="logout">  
+      <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
+ </button>
+
+
+{% endblock %}
