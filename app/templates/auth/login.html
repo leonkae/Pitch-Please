@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="title-wrapper">
+  <h1>login</h1>
+</div>
+
+<div class="login-container">
+  <div class="art-wrapper"></div>
+  <div class="login-wrapper">
+    <h1>login</h1>
+    <form method="post">
+      {{ login.csrf_token }}
+      <p class="input">{{login.email(placeholder="Email")}}</p>
+      <p class="input">{{login.password(placeholder="Enter password")}}</p>
+      <p class="input">{{login.remember()}}</p>
+
+      <p class="btn">{{login.submit()}}</p>
+
+      <div class="extra_info_wrapper">
+        <h4>Pitchme</h4>
+        <h5>Copyrights2022</h5>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="footer">
+  <p>login page||PitchMe||Copyrigths2022||creative-designs||</p>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<div class="title-wrapper">
+  <h1>signup</h1>
+</div>
+<div class="signup-container">
+  <div class="sign-art-wrapper"></div>
+  <div class="signup-wrapper">
+    <h1>signup.</h1>
+    <form method="post">
+      {{ signup.csrf_token }}
+      <p class="input">{{signup.username(placeholder="username")}}</p>
+      <p class="input">{{signup.email(placeholder="email")}}</p>
+      <p class="input">{{signup.password(placeholder="password")}}</p>
+      <p class="input">
+        {{signup.password_confirm(placeholder="confirm password")}}
+      </p>
+      <p class="btn">{{signup.submit()}}</p>
+      
+      <div class="more_info_wrapper">
+        <h4>Pitchme</h4>
+        <h5>Copyrights2022</h5>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="footer">
+  <p>signup page||PitchMe||Copyrigths2022||creative-designs||</p>
+</div>
+
+{% endblock %}
