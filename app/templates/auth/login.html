@@ -1,5 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="nav-wrapper">
+  <a href="/">home</a>
+  <a href="/auth/signup">signup</a>
+</div>
+
 <div class="title-wrapper">
   <h1>login</h1>
 </div>
@@ -8,13 +13,31 @@
   <div class="art-wrapper"></div>
   <div class="login-wrapper">
     <h1>login</h1>
+
+    {% for message in get_flashed_messages() %}
+    <p>{{message}}</p>
+    {% endfor %}
+    
     <form method="post">
       {{ login.csrf_token }}
       <p class="input">{{login.email(placeholder="Email")}}</p>
+      {% for error in login.email.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
       <p class="input">{{login.password(placeholder="Enter password")}}</p>
+      {% for error in login.password.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+
       <p class="input">{{login.remember()}}</p>
+      {% for error in login.remember.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
       <p class="btn">{{login.submit()}}</p>
+      {% for error in login.submit.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
       <div class="extra_info_wrapper">
         <h4>Pitchme</h4>
