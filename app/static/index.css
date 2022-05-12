@@ -295,13 +295,11 @@
 }
 
 .input-form {
-  /* border: 3px solid blue; */
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
   margin-top: 10px;
 }
 .input-category {
-  /* border: 3px solid red; */
   margin: 10px;
   background-color: dodgerblue;
   width: 120px;
@@ -314,7 +312,6 @@
 
 .art-wrapper-pitches {
   overflow: hidden;
-  /* background-color: wheat; */
   height: 500px;
   width: 500px;
   border-bottom-left-radius: 40px;
@@ -323,7 +320,6 @@
 }
 
 .content {
-  /* border: 3px solid yellow; */
   font-family: "Poppins", sans-serif;
   font-size: x-large;
   width: 400px;
@@ -347,12 +343,10 @@
 }
 
 .comment-content {
-  /* border: 3px solid green; */
   width: 400px;
 }
 
 .comment-content-content {
-  /* border: 3px solid red; */
   width: 400px;
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -362,10 +356,12 @@
   display: grid;
   grid-template-rows: auto, auto, auto;
   justify-content: center;
-  border: 3px solid wheat;
+  /* border: 3px solid wheat; */
   margin: 10px;
   border-radius: 10px;
-  background-color: blanchedalmond;
+  /* background-color: blanchedalmond; */
+  background-image: url(images/concrete.jpeg);
+
 }
 .pitches-wrapper {
   text-align: center;
@@ -374,6 +370,14 @@
   text-align: center;
   margin: 10px;
   border-radius: 10px;
+  background-color: rgba(221, 192, 192, 0.616);
 
   /* margin-left: 650px; */
+}
+
+.title-wrapper-pitchme{
+   font-family: "Bangers", cursive;
+  text-align: center;
+  margin-top: 25px;
+  font-size: xx-large;
 }

@@ -5,12 +5,11 @@
   <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
 </div>
 
-<div class="title-wrapper">
+<div class="title-wrapper-pitchme">
   <h1>PITCHME</h1>
 </div>
 {% for pitch in pitches %}
 <div class="pitches-container">
-
   <div class="pitches-wrapper">
     <h4 class="content">{{pitch.title}}</h4>
     <p class="content">{{pitch.body}}</p>
