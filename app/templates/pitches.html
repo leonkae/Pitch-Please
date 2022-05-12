@@ -8,29 +8,31 @@
 <div class="title-wrapper">
   <h1>PITCHME</h1>
 </div>
+{% for pitch in pitches %}
+<div class="pitches-container">
 
-<div class="pitches-wrapper">
-  {% for pitch in pitches %}
-  <h4>{{pitch.title}}</h4>
-  <!-- <h5 class="title">{{pitch.description}}</h5> -->
-  <p>{{pitch.title}}</p>
-  <p>{{pitch.body}}</p>
-  <p>{{pitch.category}}</p>
-  <form action="/comment/{{pitch.id}}/add" method="post">
-    {{comment_form.csrf_token}}
-    {{comment_form.comment.label}}
-    {{comment_form.comment()}}
-    {{comment_form.submit()}}
-  </form>
-  {%for comment in pitch.comments%}
-    <p>{{comment.comment}}</p>
-  {%endfor%}
-
-
-
-  {% endfor %}
+  <div class="pitches-wrapper">
+    <h4 class="content">{{pitch.title}}</h4>
+    <p class="content">{{pitch.body}}</p>
+    <p class="content">{{pitch.category}}</p>
+    <form action="/comment/{{pitch.id}}/add" method="post" class="content-form">
+      {{comment_form.csrf_token}}
+      <p>
+        {{comment_form.comment(placeholder="comment",class="input-comment")}}
+      </p>
+      <p>{{comment_form.submit(class="button")}}</p>
+    </form>
+    <div class="comment-content-content">
+      {%for comment in pitch.comments%}
+      <p class="comment-content">{{comment.comment}}</p>
+      {%endfor%}
+    </div>
+  </div>
 </div>
+{% endfor %}
 
-
+<div class="footer">
+  <p>login page||PitchMe||Copyrigths2022||creative-designs||</p>
+</div>
 
 {% endblock %}
