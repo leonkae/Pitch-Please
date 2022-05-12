@@ -1,4 +1,4 @@
-export SQLALCHEMY_DATABASE_URI='postgresql://jurassic:pass123@localhost/pitches'
+export SQLALCHEMY_DATABASE_URI='postgresql://jurassic:pass123@localhost/newpitch'
 export SECRET_KEY='WREWH9WEHGIOEHWGIOEHGNES'
 
 # python3 manage.py shell

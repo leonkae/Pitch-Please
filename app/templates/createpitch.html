@@ -5,31 +5,37 @@
   <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
 </div>
 
-<form method="post">
-  {{ create.csrf_token }}
-  <p class="input">{{create.title(placeholder="title")}}</p>
-  {% for error in create.title.errors %}
-  <li class="error">{{error}}</li>
-  {% endfor %}
-  <p class="input">{{create.body(placeholder="Enter pitch")}}</p>
-  {% for error in create.body.errors %}
-  <li class="error">{{error}}</li>
-  {% endfor %}
+<div class="create-container">
+  <div class="art-wrapper-pitches"></div>
+  <div class="form-wrapper">
+    <h1>lets hear your pitch</h1>
+    <form method="post">
+      {{ create.csrf_token }}
+      <p class="input">{{create.title(placeholder="title")}}</p>
+      {% for error in create.title.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
+      <p>{{create.body(placeholder="Enter pitch",class="input-form")}}</p>
+      {% for error in create.body.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
-  <p class="input">{{create.category()}}</p>
-  {% for error in create.category.errors %}
-  <li class="error">{{error}}</li>
-  {% endfor %}
+      <p class="input-category">{{create.category()}}</p>
+      {% for error in create.category.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
-  <p class="btn">{{create.submit()}}</p>
-  {% for error in create.submit.errors %}
-  <li class="error">{{error}}</li>
-  {% endfor %}
+      <p class="btn">{{create.submit()}}</p>
+      {% for error in create.submit.errors %}
+      <li class="error">{{error}}</li>
+      {% endfor %}
 
-  <div class="extra_info_wrapper">
-    <h4>Pitchme</h4>
-    <h5>Copyrights2022</h5>
+      <div class="extra_info_wrapper">
+        <h4>Pitchme</h4>
+        <h5>Copyrights2022</h5>
+      </div>
+    </form>
   </div>
-</form>
+</div>
 
 {% endblock %}

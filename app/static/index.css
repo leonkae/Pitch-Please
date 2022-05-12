@@ -258,8 +258,6 @@
   color: black;
 }
 
-
-
 /* index styles */
 .index-container {
   display: flex;
@@ -273,11 +271,53 @@
   /* margin-top: 10px; */
   font-size: xx-large;
 }
-.subtitle-wrapper p{
+.subtitle-wrapper p {
   font-family: "Poppins", sans-serif;
   font-size: small;
 }
 
-.error{
+.error {
   color: red;
+}
+
+.create-container {
+  border: 3px solid red;
+  text-align: center;
+  display: flex;
+  grid-template-rows: auto, auto;
+  justify-content: center;
+  margin-top: 100px;
+}
+.form-wrapper {
+  width: 400px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-form {
+  border: 3px solid red;
+  font-family: "Poppins", sans-serif;
+  
+}
+.input-category p{
+  border: 3px solid red;
+}
+
+.pitches-wrapper{
+  color: red;
+}
+
+.art-wrapper-pitches{
+    overflow: hidden;
+  /* background-color: wheat; */
+  height: 500px;
+  width: 500px;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  background-image: url(images/sigma-pitch.jpg);
+}
+
+.pitches-wrapper{
+  border: 3px solid red;
+  height: 100px;
 }

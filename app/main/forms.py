@@ -7,3 +7,7 @@ class PitchForm(FlaskForm):
     category = SelectField(u'Select Category', choices=[( 'Interview Pitch'), ('Product Pitch'), ( 'Pickup Lines')])
     submit=SubmitField('create pitch')
     
+class CommentForm(FlaskForm):
+    comment = TextAreaField('comment')    
+    submit=SubmitField('submit comment')
+    

@@ -1,14 +1,35 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="nav-wrapper">
+  <a href="/pitches/add">create Pitch</a>
+  <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
+</div>
 
-   
- <div class="nav-wrapper">
-      <a href="/pitches/add">create Pitch</a>
-      <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
-    
-   
+<div class="title-wrapper">
+  <h1>PITCHME</h1>
+</div>
 
-  </div>
+<div class="pitches-wrapper">
+  {% for pitch in pitches %}
+  <h4>{{pitch.title}}</h4>
+  <!-- <h5 class="title">{{pitch.description}}</h5> -->
+  <p>{{pitch.title}}</p>
+  <p>{{pitch.body}}</p>
+  <p>{{pitch.category}}</p>
+  <form action="/comment/{{pitch.id}}/add" method="post">
+    {{comment_form.csrf_token}}
+    {{comment_form.comment.label}}
+    {{comment_form.comment()}}
+    {{comment_form.submit()}}
+  </form>
+  {%for comment in pitch.comments%}
+    <p>{{comment.comment}}</p>
+  {%endfor%}
+
+
+
+  {% endfor %}
+</div>
 
 
 

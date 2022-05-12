@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<h1 class="account-heading">{{current_user.username}}</h1>
+<p class="text-secondary">{{current_user.email}}</p>
+
+{% endblock %}
+
+
+<!-- {{ pitch.csrf_token }}
+<p>{{pitch.title}}</p>
+<p>{{pitch.body}}</p>
+<p>{{pitch.category}}</p>
+<p>{{pitch.submit}}</p> -->
