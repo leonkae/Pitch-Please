@@ -20,7 +20,7 @@
       <li class="error">{{error}}</li>
       {% endfor %}
 
-      <p class="input-category">{{create.category()}}</p>
+      <p >{{create.category(class="input-category")}}</p>
       {% for error in create.category.errors %}
       <li class="error">{{error}}</li>
       {% endfor %}
@@ -36,6 +36,10 @@
       </div>
     </form>
   </div>
+</div>
+
+<div class="footer">
+  <p>createpitches||PitchMe||Copyrigths2022||creative-designs||</p>
 </div>
 
 {% endblock %}
