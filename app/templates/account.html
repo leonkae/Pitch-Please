@@ -1,8 +1,33 @@
 {% extends 'base.html' %} {% block content %}
 
+{%if user.profile_pic_path%}
+<img src="{{url_for('static', filename=user.profile_pic_path)}}" alt="">
+{%else%}
+<img src="{{url_for('static',filename = 'african.jpg')}}" alt="default picture">
+{%endif%}
+
+{%if user==current_user%}
+<form action="{{url_for('main_blueprint.update_pic',uname = user.username)}}" method="post" enctype="multipart/form-data">
+    <input type="file" name="photo" required/>
+    <input type="submit"/>
+
+</form>
+{%endif%}
 
 <h1 class="account-heading">{{current_user.username}}</h1>
 <p class="text-secondary">{{current_user.email}}</p>
+{%if user.bio%}
+<p class="user-bio">{{user.bio}}</p>
+{%else%}
+<p>no bio available</p>
+{%endif%}
+
+{%if user==current_user%}
+<a href="{{url_for('main_blueprint.update_account',uname = user.username)}}">edit profile</a>
+{%endif%}
+
+
+
 
 {% endblock %}
 

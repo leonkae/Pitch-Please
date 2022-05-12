@@ -2,7 +2,16 @@
 
 <div class="nav-wrapper">
   <a href="/pitches/add">create Pitch</a>
+
+  {%if current_user.is_authenticated%}
+  <!-- <a href="{{url_for('main_blueprint.pitches',uname=current_user.username)}}">create Pitch</a> -->
+  <a href="{{url_for('main_blueprint.account',uname=current_user.username)}}">my profile</a>
   <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
+  {%else%}
+   <a href="/auth/login">login</a>
+  {%endif%}
+
+  
 </div>
 
 <div class="title-wrapper-pitchme">

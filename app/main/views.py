@@ -1,9 +1,10 @@
-from flask import render_template,redirect,url_for
+from flask import render_template,redirect,url_for,request
 from . import main_blueprint as main
 from flask_login import login_required
-from .forms import PitchForm,CommentForm
-from .models import Pitches,Comments
-from app import db
+from .forms import PitchForm,CommentForm,UpdateAccount
+from .models import Pitches,Comments,User
+from app import db,photos
+
 
 
 
@@ -15,6 +16,7 @@ def index():
 @main.route('/pitches')
 @login_required
 def pitches():
+    # user = User.query.filter_by(username = uname).first()
     pitches = Pitches.query.all()
     # print(pitches)
     form = CommentForm()
@@ -43,7 +45,40 @@ def add_comment(pitch_id):
         return redirect(url_for('main_blueprint.pitches',pitch_id=pitch_id))
     return render_template('pitches.html',comment_form=form)
 
-# @main.route('/account')
-# @login_required
-# def acoount():
-#     image_file = url_for('static' ,filename='app/')
+@main.route('/account/<uname>')
+@login_required
+def account(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+    return render_template('account.html',user=user)
+
+@main.route('/account/<uname>/update/',methods= ['GET', 'POST'])
+@login_required
+def update_account(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+    update = UpdateAccount()   
+    if update.validate_on_submit():
+        user.bio = update.bio.data
+        db.session.add(user)
+        db.session.commit()
+        
+        return redirect(url_for('.account',uname=user.username))
+    return render_template('update.html',update=update)
+        
+@main.route('/account/<uname>/update/pic', methods= ['POST'])
+@login_required
+def update_pic(uname):
+    user = User.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    
+    return redirect(url_for('main_blueprint.account', uname = uname))    
+    
+     
+        

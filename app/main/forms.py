@@ -11,3 +11,8 @@ class CommentForm(FlaskForm):
     comment = TextAreaField('comment')    
     submit=SubmitField('submit comment')
     
+    
+class UpdateAccount(FlaskForm):
+    bio = TextAreaField('bio')    
+    submit=SubmitField('update bio')
+    

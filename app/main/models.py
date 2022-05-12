@@ -12,11 +12,13 @@ def load_user(user_id):
 
 class User(db.Model,UserMixin):
     
-    __tablename__ = 'user'
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True,)
     username = db.Column(db.String, unique=True, index=True)
     email = db.Column(db.String, unique=True, index=True)
     password_hash = db.Column(db.String)
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
    
     
     @property
@@ -45,7 +47,7 @@ class Pitches(db.Model):
     title = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
     body = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    users_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     votes_id = db.Column(db.Integer, db.ForeignKey('votes.id'))
     comments = db.relationship('Comments', backref='comments',lazy = True)
 

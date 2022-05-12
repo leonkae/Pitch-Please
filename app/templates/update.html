@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>update profile</h1>
+<form method="post">
+  {{ update.csrf_token }}
+  <p class="input">{{update.bio(placeholder="bio")}}</p>
+  {% for error in update.bio.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
+
+  <p class="btn">{{update.submit()}}</p>
+  {% for error in update.submit.errors %}
+  <li class="error">{{error}}</li>
+  {% endfor %}
+</form>
+
+{% endblock %}
