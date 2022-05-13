@@ -5,6 +5,7 @@ from app.main.models import User
 
 
 app = create_app('production')
+# app = create_app('development')
 migrate = Migrate(app, db)
 manager = Manager(app, db)
 manager.add_command('server', Server)
