@@ -1,39 +1,55 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="nav-wrapper">
+  <a href="/pitches">pitches</a>
+  <a href="/pitches/add">create Pitch</a>
+  <a href="{{url_for('auth_blueprint.logout')}}">logout</a>
+</div>
+
+<div class="title-wrapper-account">
+  <h1>MY PROFILE</h1>
+</div>
+
 {%if user.profile_pic_path%}
-<img src="{{url_for('static', filename=user.profile_pic_path)}}" alt="">
+<div class="profile-img">
+  <img src="{{url_for('static', filename=user.profile_pic_path)}}" alt="" />
+</div>
 {%else%}
-<img src="{{url_for('static',filename = 'african.jpg')}}" alt="default picture">
+<div class="-default-profile-img">
+  <img
+    src="{{url_for('static',filename = 'african.jpg')}}"
+    alt="default picture"
+  />
+</div>
+{%endif%} {%if user==current_user%}
+
+<div class="profile-buttons">
+  <form
+    action="{{url_for('main_blueprint.update_pic',uname = user.username)}}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <input type="file" name="photo" required  class="input-button" />
+    <input type="submit" class="submit-btn"/>
+  </form>
+</div>
 {%endif%}
-
-{%if user==current_user%}
-<form action="{{url_for('main_blueprint.update_pic',uname = user.username)}}" method="post" enctype="multipart/form-data">
-    <input type="file" name="photo" required/>
-    <input type="submit"/>
-
-</form>
+<div class="profile-info">
+  <h1 class="account-heading">Username:   {{current_user.username}}</h1>
+  <p class="text-secondary">Email:   {{current_user.email}}</p>
+  {%if user.bio%}
+  <p class="user-bio">Bio:   {{user.bio}}</p>
+  {%else%}
+  <p>no bio available</p>
+  {%endif%} {%if user==current_user%}
+  <a href="{{url_for('main_blueprint.update_account',uname = user.username)}}"
+    >Edit profile</a
+  >
+</div>
 {%endif%}
-
-<h1 class="account-heading">{{current_user.username}}</h1>
-<p class="text-secondary">{{current_user.email}}</p>
-{%if user.bio%}
-<p class="user-bio">{{user.bio}}</p>
-{%else%}
-<p>no bio available</p>
-{%endif%}
-
-{%if user==current_user%}
-<a href="{{url_for('main_blueprint.update_account',uname = user.username)}}">edit profile</a>
-{%endif%}
-
-
-
+<div class="footer">
+  <p>my profile||PitchMe||Copyrigths2022||creative-designs||</p>
+</div>
 
 {% endblock %}
 
-
-<!-- {{ pitch.csrf_token }}
-<p>{{pitch.title}}</p>
-<p>{{pitch.body}}</p>
-<p>{{pitch.category}}</p>
-<p>{{pitch.submit}}</p> -->

@@ -361,7 +361,6 @@
   border-radius: 10px;
   /* background-color: blanchedalmond; */
   background-image: url(images/concrete.jpeg);
-
 }
 .pitches-wrapper {
   text-align: center;
@@ -375,8 +374,73 @@
   /* margin-left: 650px; */
 }
 
-.title-wrapper-pitchme{
-   font-family: "Bangers", cursive;
+.title-wrapper-pitchme {
+  font-family: "Bangers", cursive;
+  text-align: center;
+  margin-top: 25px;
+  font-size: xx-large;
+}
+
+/* account styles */
+.profile-img {
+  text-align: center;
+}
+
+.profile-img img {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.profile-buttons {
+  text-align: center;
+}
+.submit-btn {
+  background-color: dodgerblue;
+  width: 130px;
+  height: 28px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-info {
+  /* border: 3px solid red; */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin: 30px;
+}
+
+.profile-info h1 {
+  font-size: xx-large;
+}
+
+.profile-info p {
+  font-size: x-large;
+}
+
+.profile-info a {
+  text-decoration: none;
+  font-size: x-large;
+  color: rgb(131, 126, 126);
+  margin: 10px;
+}
+
+.profile-info a:hover {
+  border-bottom: 1.5px solid black;
+  color: rgb(7, 7, 7);
+}
+
+.title-wrapper-account {
+  font-family: "Bangers", cursive;
   text-align: center;
   margin-top: 25px;
   font-size: xx-large;
