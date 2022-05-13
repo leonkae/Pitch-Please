@@ -298,6 +298,9 @@
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
   margin-top: 10px;
+  border: 2px solid black;
+  width: 340px;
+  height: 150px;
 }
 .input-category {
   margin: 10px;
@@ -445,3 +448,16 @@ input {
   margin-top: 25px;
   font-size: xx-large;
 }
+
+.bio-form{
+  text-align: center;
+  margin: 20px;
+}
+.form-input-bio{
+  border-radius: 8px;
+  margin: 10px;
+  width: 450px;
+  height: 250px;
+  font-family: "Poppins", sans-serif;
+}
+
