@@ -1,22 +1,22 @@
 # from flask_sqlalchemy import SQLAlchemy
 import os
 class Config():
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     SECRET_KEY = os.environ.get('SECRET_KEY') 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     
-    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    # if uri and uri .startswith('postgres://'):
-    #     uri = uri.replace("postgres://", "postgresql://",1)
-    # SQLALCHEMY_TRACK_MODIFICATIONS = os('SQLALCHEMY_TRACK_MODIFICATIONS')
+
     
     
 class DevConfig(Config):
     DEBUG = os.environ.get('DEBUG')
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://leonkae:12345678@localhost/pitchme'
 
 class ProdConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://",1)
+    
 
 
 config_options = {
