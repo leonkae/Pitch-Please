@@ -10,9 +10,10 @@ class Config():
     
 class DevConfig(Config):
     DEBUG = os.environ.get('DEBUG')
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://leonkae:12345678@localhost/pitchme'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://leonkae:12345678@localhost/newpitch'
 
 class ProdConfig(Config):
+    # pass
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
     if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
         SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://",1)
